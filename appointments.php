@@ -11,7 +11,7 @@ require './database/dbcon.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/styles/homepage.css">
+    <link rel="stylesheet" href="./assets/styles/general.css">
 </head>
 
 <body>
@@ -26,7 +26,7 @@ require './database/dbcon.php';
                     </div>
                     <div class="">
 
-                        <table class="">
+                        <table class="data">
                             <thead>
                                 <tr>
                                     <th>First Name</th>
@@ -35,6 +35,7 @@ require './database/dbcon.php';
                                     <th>Doctor</th>
                                     <th>Date</th>
                                     <th>Time</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>

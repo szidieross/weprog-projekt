@@ -169,3 +169,22 @@ VALUES
         '123456789',
         'általános orvos'
     );
+
+INSERT INTO
+    doctors(
+        `d_first_name`,
+        `d_last_name`,
+        `d_username`,
+        `d_email`,
+        `d_password`,
+        `specialization`
+    )
+VALUES
+    (
+        'Istvan',
+        'Benedek',
+        'benedekistvan',
+        'benedekistvan@gmail.com',
+        '123456789',
+        'urulógus'
+    );
