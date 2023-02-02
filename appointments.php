@@ -32,13 +32,14 @@ require './database/dbcon.php';
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Username</th>
+                                    <th>Doctor</th>
                                     <th>Date</th>
                                     <th>Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.id";
+                                $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.user_id INNER JOIN doctors ON appointments.doctor_id = doctors.doctor_id";
                                 $query_run = mysqli_query($con, $query);
 
 
@@ -57,6 +58,9 @@ require './database/dbcon.php';
                                                     <?= $student['username']; ?>
                                                 </td>
                                                 <td>
+                                                    <?= $student['d_username']; ?>
+                                                </td>
+                                                <td>
                                                     <?= $student['date']; ?>
                                                 </td>
                                                 <td>
@@ -64,7 +68,7 @@ require './database/dbcon.php';
                                                 </td>
                                                 <td>
                                                     <form action="" method="POST" class="">
-                                                        <button type="submit" name="delete_booking" value="<?= $student['id']; ?>"
+                                                        <button type="submit" name="delete_booking" value="<?= $student['user_id']; ?>"
                                                             class="btn btn-danger btn-sm">Delete Appointment</button>
                                                     </form>
                                                 </td>
