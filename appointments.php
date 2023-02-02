@@ -21,7 +21,7 @@ require './database/dbcon.php';
                 <div class="">
                     <div class="">
                         <h4>All Patients
-                            <a href="student-create.php" class="">Add Students</a>
+                            <a href="user-create.php" class="">Add users</a>
                         </h4>
                     </div>
                     <div class="">
@@ -44,31 +44,31 @@ require './database/dbcon.php';
 
 
                                 if (mysqli_num_rows($query_run) > 0) {
-                                    foreach ($query_run as $student) {
+                                    foreach ($query_run as $user) {
                                         ?>
-                                        <?php if ($student['taken'] == true): ?>
+                                        <?php if ($user['taken'] == true): ?>
                                             <tr>
                                                 <td>
-                                                    <?= $student['first_name']; ?>
+                                                    <?= $user['first_name']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $student['last_name']; ?>
+                                                    <?= $user['last_name']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $student['username']; ?>
+                                                    <?= $user['username']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $student['d_username']; ?>
+                                                    <?= $user['d_username']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $student['date']; ?>
+                                                    <?= $user['date']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $student['time']; ?>
+                                                    <?= $user['time']; ?>
                                                 </td>
                                                 <td>
                                                     <form action="" method="POST" class="">
-                                                        <button type="submit" name="delete_booking" value="<?= $student['user_id']; ?>"
+                                                        <button type="submit" name="delete_booking" value="<?= $user['user_id']; ?>"
                                                             class="btn btn-danger btn-sm">Delete Appointment</button>
                                                     </form>
                                                 </td>

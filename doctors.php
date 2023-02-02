@@ -35,12 +35,12 @@ require './database/dbcon.php';
                                     <th>Last Name</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Action</th>
+                                    <th>Specialization</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $query = "SELECT * FROM users";
+                                $query = "SELECT * FROM doctors";
                                 $query_run = mysqli_query($con, $query);
 
                                 if (mysqli_num_rows($query_run) > 0) {
@@ -48,27 +48,30 @@ require './database/dbcon.php';
                                         ?>
                                         <tr>
                                             <td>
-                                                <?= $user['user_id']; ?>
+                                                <?= $user['doctor_id']; ?>
                                             </td>
                                             <td>
-                                                <?= $user['first_name']; ?>
+                                                <?= $user['d_first_name']; ?>
                                             </td>
                                             <td>
-                                                <?= $user['last_name']; ?>
+                                                <?= $user['d_last_name']; ?>
                                             </td>
                                             <td>
-                                                <?= $user['username']; ?>
+                                                <?= $user['d_username']; ?>
                                             </td>
                                             <td>
-                                                <?= $user['email']; ?>
+                                                <?= $user['d_email']; ?>
                                             </td>
                                             <td>
-                                                <a href="user-view.php?id=<?= $user['user_id']; ?>"
+                                                <?= $user['specialization']; ?>
+                                            </td>
+                                            <td>
+                                                <a href="user-view.php?id=<?= $user['doctor_id']; ?>"
                                                     class="btn btn-info btn-sm">View</a>
-                                                <a href="user-edit.php?id=<?= $user['user_id']; ?>"
+                                                <a href="user-edit.php?id=<?= $user['doctor_id']; ?>"
                                                     class="btn btn-success btn-sm">Edit</a>
                                                 <form action="code.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
+                                                    <button type="submit" name="delete_user" value="<?= $user['doctor_id']; ?>"
                                                         class="btn btn-danger btn-sm">Delete</button>
                                                 </form>
                                             </td>

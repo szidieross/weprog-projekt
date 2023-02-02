@@ -22,7 +22,7 @@ require 'dbcon.php';
                 <div class="card">
                     <div class="card-header">
                         <h4>All Patients
-                            <a href="student-create.php" class="btn btn-primary float-end">Add Students</a>
+                            <a href="user-create.php" class="btn btn-primary float-end">Add users</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -42,23 +42,23 @@ require 'dbcon.php';
                                 $query_run = mysqli_query($con, $query);
 
                                 if (mysqli_num_rows($query_run) > 0) {
-                                    foreach ($query_run as $student) {
+                                    foreach ($query_run as $user) {
                                         ?>
-                                        <?php if($student['taken']==false) : ?>
+                                        <?php if($user['taken']==false) : ?>
                                         <tr>
                                             <td>
-                                                <?= $student['date']; ?>
+                                                <?= $user['date']; ?>
                                             </td>
                                             <td>
-                                                <?= $student['time']; ?>
+                                                <?= $user['time']; ?>
                                             </td>
                                             <td>
-                                                <!-- <a href="student-view.php?id=<?= $student['id']; ?>"
+                                                <!-- <a href="user-view.php?id=<?= $user['id']; ?>"
                                                     class="">View</a>
-                                                <a href="student-edit.php?id=<?= $student['id']; ?>"
+                                                <a href="user-edit.php?id=<?= $user['id']; ?>"
                                                     class="">Edit</a> -->
                                                 <form action="" method="POST" class="">
-                                                    <button type="submit" name="delete_student" value="<?= $student['appointment_id']; ?>"
+                                                    <button type="submit" name="delete_user" value="<?= $user['appointment_id']; ?>"
                                                         class="">Book Appointment</button>
                                                 </form>
                                             </td>
