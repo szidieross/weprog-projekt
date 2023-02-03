@@ -1,6 +1,7 @@
 <?php
-session_start();
+// session_start();
 require './database/dbcon.php';
+require './database/code.php';
 ?>
 
 <!doctype html>
@@ -60,9 +61,9 @@ require './database/dbcon.php';
                                         <a href="user-edit.php?id=<?= $user['user_id']; ?>"
                                             class="btn btn-success btn-sm">Edit</a>
                                         <!-- <form action="code.php" method="POST" class="d-inline">
-                                                                                                                                                                                                                                                                                                                                        <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
-                                                                                                                                                                                                                                                                                                                                            class="btn btn-danger btn-sm">Delete</button>
-                                                                                                                                                                                                                                                                                                                                    </form> -->
+                                                                                                                                                                                                                                                                                                                                                <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
+                                                                                                                                                                                                                                                                                                                                                    class="btn btn-danger btn-sm">Delete</button>
+                                                                                                                                                                                                                                                                                                                                            </form> -->
                                     </td>
                                 </tr>
                                 <?php
@@ -118,6 +119,8 @@ require './database/dbcon.php';
                                         </td>
                                         <td>
                                             <form action="" method="POST" class="">
+                                                <input type="hidden" name="appointment_id"
+                                                    value="<?= $user['appointment_id']; ?>" />
                                                 <button type="submit" name="delete_booking" value="<?= $user['user_id']; ?>"
                                                     class="btn">Delete Appointment</button>
                                             </form>

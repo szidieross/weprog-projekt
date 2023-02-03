@@ -1,3 +1,9 @@
+<?php
+// session_start();
+require '../database/dbcon.php';
+require '../database/code.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,51 +19,12 @@
 <?php
 
 setcookie("username", "istike");
-if(isset($_COOKIE["username"])){
+if (isset($_COOKIE["username"])) {
     echo "HIIIIIIIIIIIIIIIIIII";
-}else{
+} else {
     echo "BYEEEEEEEEEEEEEEEEEEEE";
 }
-    //login.php
-
-    // include("../database/dbcon.php");
-
-    // if (isset($_COOKIE["type"])) {
-//     header("location:../index.php");
-// }
-
-    // $message = '';
-
-    // if (isset($_POST["user_login"])) {
-//     if (empty($_POST["username"]) || empty($_POST["password"])) {
-//         $message = "<div class='alert alert-danger'>Both Fields are required</div>";
-//     } else {
-//         $username = $_POST["username"];
-//         $query = "SELECT * FROM users WHERE username = $username";
-
-    // $statement = $connect->prepare($query);
-// $statement->execute(
-//     array(
-//         'user_email' => $_POST["user_email"]
-//     )
-// );
-// $count = $statement->rowCount();
-//         if ($count > 0) {
-//             $result = $statement->fetchAll();
-//             foreach ($result as $row) {
-//                 if (password_verify($_POST["user_password"], $row["user_password"])) {
-//                     setcookie("type", $row["user_type"], time() + 3600);
-//                     header("location:index.php");
-//                 } else {
-//                     $message = '<div class="alert alert-danger">Wrong Password</div>';
-//                 }
-//             }
-//         } else {
-//             $message = "<div class='alert alert-danger'>Wrong Email Address</div>";
-//         }
-//     }
-// }
-    ?>
+?>
 
 <body>
     <div class="">
@@ -80,7 +47,7 @@ if(isset($_COOKIE["username"])){
                         <button type="submit" name="user_login" class="sign">Login</button>
                     </div>
                     <p class="smallText">Don't have an account? <a href="./userRegister.php" class="sign">Sign
-                            in</a></p>
+                            up</a></p>
 
                 </form>
             </div>
