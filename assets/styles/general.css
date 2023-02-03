@@ -1,7 +1,10 @@
 :root {
     --primary: rgb(81, 146, 148);
-    --secondary: rgb(255, 255, 255);
+    --secondary: rgb(116, 124, 199);
     --title: rgb(43, 92, 94);
+    --bgColor: rgba(255, 255, 255, 0.507);
+    --transparent: rgba(255, 255, 255, 0.87);
+
 }
 
 body {
@@ -9,6 +12,8 @@ body {
     background-image: url('../img/header1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .categories {
@@ -23,7 +28,7 @@ body {
 }
 
 .groups {
-    background-color: rgba(255, 255, 255, 0.87);
+    background-color: var(--transparent);
     height: 300px;
     flex: 1;
     border-radius: 10px;
@@ -56,7 +61,7 @@ body {
 }
 
 .form {
-    background-color: rgba(255, 255, 255, 0.507);
+    background-color: var(--bgColor);
     height: 400px;
     width: 600px;
     margin: 0 auto;
@@ -81,7 +86,7 @@ p {
 }
 
 table {
-    background-color: rgba(255, 255, 255, 0.87);
+    background-color: var(--transparent);
     width: 90%;
     margin: 0 auto;
     border-radius: 4px;
@@ -110,26 +115,35 @@ td {
     margin: 0 aut0;
     justify-content: center;
     gap: 50px;
+    height: max-content;
+    flex-wrap: wrap;
 }
 
-.book form {
+.form-flex {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px 0;
+}
+
+.form-flex h3,
+.form-flex h4 {
+    margin: 0;
 }
 
 .btn {
     height: 40px;
     width: max-content;
-    padding: 20px 20px;
+    padding: 0 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: var(--secondary);
+    color: white;
     text-decoration: none;
-    background-color: rgb(181, 201, 207);
+    background-color: var(--primary);
     line-height: 40px;
 }
+
 .sign {
     height: 40px;
     width: max-content;
@@ -137,12 +151,10 @@ td {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: var(--secondary);
+    color: white;
     text-decoration: none;
     line-height: 40px;
-    background-color: rgb(181, 201, 207);
-    font-size: 16px;
-    font-weight: bold;
+    background-color: var(--primary);
 }
 
 .content {
@@ -175,4 +187,23 @@ h6 {
     position: absolute;
     top: 80px;
     color: var(--title);
+}
+
+.booking {
+    background-color: var(--transparent);
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+input{
+    border: 1px solid var(--primary);
+    height: 20px;
+    margin: 0 10px;    
+}
+
+label{
+    color: var(--primary);
+    font-weight: bold;
 }

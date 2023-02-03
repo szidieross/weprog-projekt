@@ -1,22 +1,22 @@
 <?php
-if (isset($_POST['save_student'])) {
-    $username = mysqli_real_escape_string($con, $_POST['username']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $password = mysqli_real_escape_string($con, $_POST['password']);
+// if (isset($_POST['save_student'])) {
+//     $username = mysqli_real_escape_string($con, $_POST['username']);
+//     $email = mysqli_real_escape_string($con, $_POST['email']);
+//     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $query = "INSERT INTO patient (username,email,password) VALUES ('$username','$email','$password')";
+//     $query = "INSERT INTO patient (username,email,password) VALUES ('$username','$email','$password')";
 
-    $query_run = mysqli_query($con, $query);
-    if ($query_run) {
-        $_SESSION['message'] = "Student Created Successfully";
-        header("Location: index.php");
-        exit(0);
-    } else {
-        $_SESSION['message'] = "Student Not Created";
-        header("Location: index.php");
-        exit(0);
-    }
-}
+//     $query_run = mysqli_query($con, $query);
+//     if ($query_run) {
+//         $_SESSION['message'] = "Student Created Successfully";
+//         header("Location: index.php");
+//         exit(0);
+//     } else {
+//         $_SESSION['message'] = "Student Not Created";
+//         header("Location: index.php");
+//         exit(0);
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -72,98 +72,98 @@ if (isset($_POST['save_student'])) {
 
 
     <?php
-    include('DBhandler.php');
-    $server = new DBhandler();
-    if (isset($_POST['submit'])) {
-        $msg;
-        $dbh = new PDO("mysql:host=localhost;dbname=webprojekt", "root", "");
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $name = $firstname . " " . $lastname;
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $confirm_pass = $_POST['confirm_pass'];
+    // include('DBhandler.php');
+    // $server = new DBhandler();
+    // if (isset($_POST['submit'])) {
+    //     $msg;
+    //     $dbh = new PDO("mysql:host=localhost;dbname=webprojekt", "root", "");
+    //     $firstname = $_POST['firstname'];
+    //     $lastname = $_POST['lastname'];
+    //     $name = $firstname . " " . $lastname;
+    //     $email = $_POST['email'];
+    //     $password = $_POST['password'];
+    //     $confirm_pass = $_POST['confirm_pass'];
 
 
 
-        $number = preg_match('@[0-9]@', $password);
-        $uppercase = preg_match('@[A-Z]@', $password);
-        $lowercase = preg_match('@[a-z]@', $password);
-        $specialChars = preg_match('@[^\w]@', $password);
+    //     $number = preg_match('@[0-9]@', $password);
+    //     $uppercase = preg_match('@[A-Z]@', $password);
+    //     $lowercase = preg_match('@[a-z]@', $password);
+    //     $specialChars = preg_match('@[^\w]@', $password);
 
-        function checkEmail($email)
-        {
-            $dbh = new PDO("mysql:host=localhost;dbname=webprojekt", "root", "");
-            $stmt = $dbh->prepare("SELECT * from user WHERE email='$email'");
-            $stmt->execute();
-            $count = $stmt->rowCount();
+    //     function checkEmail($email)
+    //     {
+    //         $dbh = new PDO("mysql:host=localhost;dbname=webprojekt", "root", "");
+    //         $stmt = $dbh->prepare("SELECT * from user WHERE email='$email'");
+    //         $stmt->execute();
+    //         $count = $stmt->rowCount();
 
-            if ($count == 0)
-                return true;
-            else
-                return false;
-        }
+    //         if ($count == 0)
+    //             return true;
+    //         else
+    //             return false;
+    //     }
 
 
-        if (
-            empty($firstname) ||
-            empty($lastname) ||
-            empty($email) ||
-            empty($password) ||
-            empty($confirm_pass)
-        ) {
-            echo "
-        <script>document.getElementById('status').innerHTML='All fields required'</script>
-        ";
-            die();
-        }
+    //     if (
+    //         empty($firstname) ||
+    //         empty($lastname) ||
+    //         empty($email) ||
+    //         empty($password) ||
+    //         empty($confirm_pass)
+    //     ) {
+    //         echo "
+    //     <script>document.getElementById('status').innerHTML='All fields required'</script>
+    //     ";
+    //         die();
+    //     }
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "
-            <script>document.getElementById('status').innerHTML='Valid email required'</script>
-        ";
-            die();
-        }
+    //     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //         echo "
+    //         <script>document.getElementById('status').innerHTML='Valid email required'</script>
+    //     ";
+    //         die();
+    //     }
 
-        if (!checkEmail($email)) {
-            echo "
-        <script>document.getElementById('status').innerHTML='Email already used'</script>
-        ";
-            die();
-        }
+    //     if (!checkEmail($email)) {
+    //         echo "
+    //     <script>document.getElementById('status').innerHTML='Email already used'</script>
+    //     ";
+    //         die();
+    //     }
 
-        if (strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) {
-            echo "
+    //     if (strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) {
+    //         echo "
             
-            <script>
-            document.getElementById('status').style.fontSize='15px'
-            document.getElementById('status').innerHTML='Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.'</script>
-        ";
-            die();
-        }
+    //         <script>
+    //         document.getElementById('status').style.fontSize='15px'
+    //         document.getElementById('status').innerHTML='Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.'</script>
+    //     ";
+    //         die();
+    //     }
 
-        if ($password != $confirm_pass) {
-            echo "
-        <script>
-        document.getElementById('status').innerHTML='Confirm password dont match'
+    //     if ($password != $confirm_pass) {
+    //         echo "
+    //     <script>
+    //     document.getElementById('status').innerHTML='Confirm password dont match'
 
-        </script>
-        ";
-            die();
-        }
+    //     </script>
+    //     ";
+    //         die();
+    //     }
 
-        echo "
+    //     echo "
             
-            <script>
-            document.getElementById('status').style.color='green'
-            document.getElementById('status').innerHTML='Succes'</script>
-        ";
-        $server->register($password, $email, $name);
+    //         <script>
+    //         document.getElementById('status').style.color='green'
+    //         document.getElementById('status').innerHTML='Succes'</script>
+    //     ";
+    //     $server->register($password, $email, $name);
 
 
 
 
-    }
+    // }
     ?>
 </body>
 

@@ -22,10 +22,6 @@
                         <label>Username</label>
                         <input type="text" name="username" class="form-control">
                     </div>
-                    <!-- <div class="mb-3">
-                                <label>Email</label>
-                                <input type="email" name="email" class="form-control">
-                            </div> -->
                     <div class="">
                         <label>Password</label>
                         <input type="password" name="password" class="">

@@ -17,8 +17,8 @@
             <div class="group-img"></div>
             <div class="group-data">
                 <h2 class="group-name">Patients</h2>
-                <a href="./login/userLogin.php" class="btn">Log in</a>
-                <p class="smallText">Don't have an account? <a href="./login/userRegister.php" class="btn">Sign up</a>
+                <a href="./login/userLogin.php" class=""><button class="btn">Sign up</button></a>
+                <p class="smallText">Don't have an account yet? <a href="./login/userRegister.php" class=""><button class="btn">Sign up</button></a>
                 </p>
             </div>
         </div>
@@ -26,16 +26,16 @@
             <div class="group-img"></div>
             <div class="group-data">
                 <h2 class="group-name">Doctors</h2>
-                <a href="./login/doctorLogin.php" class="btn">Log in</a>
+                <a href="./login/doctorLogin.php" class=""><button class="btn">Log in</button></a>
             </div>
         </div>
-        <div class="groups">
+        <!-- <div class="groups">
             <div class="group-img"></div>
             <div class="group-data">
                 <h2 class="group-name">Admin</h2>
                 <a href="./login/adminLogin.php" class="btn">Log in</a>
             </div>
-        </div>
+        </div> -->
     </div>
 </body>
 

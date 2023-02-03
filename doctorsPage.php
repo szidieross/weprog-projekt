@@ -20,8 +20,8 @@ require './database/dbcon.php';
             <div class="">
                 <div class="">
                     <div class="">
-                        <h4>All Patients
-                            <a href="user-create.php" class="">Add users</a>
+                        <h4>
+                            <a href="./index.php" class=""><button class="btn">Log out</button></a>
                         </h4>
                     </div>
                     <div class="">
@@ -29,9 +29,9 @@ require './database/dbcon.php';
                         <table class="data">
                             <thead>
                                 <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
+                                    <!-- <th>First Name</th>
+                                    <th>Last Name</th> -->
+                                    <th>Patient</th>
                                     <th>Doctor</th>
                                     <th>Date</th>
                                     <th>Time</th>
@@ -50,16 +50,16 @@ require './database/dbcon.php';
                                         <?php if ($user['taken'] == true): ?>
                                             <tr>
                                                 <td>
-                                                    <?= $user['first_name']; ?>
-                                                </td>
-                                                <td>
                                                     <?= $user['last_name']; ?>
+                                                    <?= $user['first_name']; ?>
+                                                    (@
+                                                    <?= $user['username']; ?>)
                                                 </td>
                                                 <td>
-                                                    <?= $user['username']; ?>
-                                                </td>
-                                                <td>
-                                                    <?= $user['d_username']; ?>
+                                                    <?= $user['d_last_name']; ?>
+                                                    <?= $user['d_first_name']; ?>
+                                                    (@
+                                                    <?= $user['d_username']; ?>)
                                                 </td>
                                                 <td>
                                                     <?= $user['date']; ?>
