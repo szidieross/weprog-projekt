@@ -2,6 +2,8 @@
 // session_start();
 require '../database/dbcon.php';
 require '../database/code.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,17 +16,6 @@ require '../database/code.php';
     <title>Document</title>
     <link rel="stylesheet" href="../assets/styles/general.css">
 </head>
-
-
-<?php
-
-setcookie("username", "istike");
-if (isset($_COOKIE["username"])) {
-    echo "";
-} else {
-    echo "";
-}
-?>
 
 <body>
     <div class="">

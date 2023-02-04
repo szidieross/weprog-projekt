@@ -19,27 +19,27 @@ require './database/code.php';
 
     <div class="">
         <?php if (isset($_COOKIE['username'])): ?>
-            <table class="">
-                <h4>
-                    <a href="./index.php" class="btn">Log out</a>
-                </h4>
-                <h2 class="title">Available Appointments</h2>
+            <?php if ($_COOKIE['username'] === 'admin'): ?>
+                <table class="">
+                    <h4>
+                        <a href="./index.php" class="btn">Log out</a>
+                    </h4>
+                    <h2 class="title">Available Appointments</h2>
 
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $query = "SELECT * FROM appointments";
-                    $query_run = mysqli_query($con, $query);
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $query = "SELECT * FROM appointments";
+                        $query_run = mysqli_query($con, $query);
 
-                    if (mysqli_num_rows($query_run) > 0) {
-                        foreach ($query_run as $user) {
-                            ?>
-                            <?php if ($user['taken'] == false): ?>
+                        if (mysqli_num_rows($query_run) > 0) {
+                            foreach ($query_run as $user) {
+                                ?>
                                 <tr>
                                     <td>
                                         <?= $user['date']; ?>
@@ -55,16 +55,16 @@ require './database/code.php';
                                     </form>
 
                                 </tr>
-                            <?php endif; ?>
-                            <?php
+                                <?php
+                            }
+                        } else {
+                            echo "<tr><h5> No Record Found </h5></tr>";
                         }
-                    } else {
-                        echo "<tr><h5> No Record Found </h5></tr>";
-                    }
-                    ?>
+                        ?>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            <?php endif; ?>
 
         <?php else: ?>
             even more html

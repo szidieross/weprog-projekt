@@ -3,11 +3,70 @@
 session_start();
 require 'dbcon.php';
 
+$query = "SELECT * FROM users WHERE users.user_id = 1";
+$query_run = mysqli_query($con, $query);
+
+if (mysqli_num_rows($query_run) > 0) {
+    foreach ($query_run as $user) {
+        setcookie("username", $user['username']);
+    }
+}
+
+// setcookie("username", "jack");
+// if (isset($_COOKIE["username"])) {
+//     echo "jack hughes";
+// } else {
+//     echo "noooppppeeee";
+// }
+
+if (isset($_POST['login'])) {
+    $user = mysqli_real_escape_string($con, $_POST['username']);
+    // $a_id = $id['appointment_id'];
+
+
+    setcookie("username", $user, time() + 3600);
+    if (isset($_COOKIE["username"])) {
+        echo "jack hughes logged in successfully";
+    } else {
+        echo "noooppppeeee";
+    }
+
+    // $query = "UPDATE appointments SET taken=true, user_id=1 WHERE appointment_id=$id";
+    // $query_run = mysqli_query($con, $query);
+
+    if ($query_run) {
+        // $_SESSION['message'] = "Student Deleted Successfully";
+        header("Location: booking.php");
+        exit(0);
+    } else {
+        // $_SESSION['message'] = "Student Not Deleted";
+        header("Location: booking.php");
+        exit(0);
+    }
+}
+if (isset($_POST['add_appointment'])) {
+    $id = mysqli_real_escape_string($con, $_POST['appointment_id']);
+    // $a_id = $id['appointment_id'];
+
+    $query = "UPDATE appointments SET taken=true, user_id=1 WHERE appointment_id=$id";
+    $query_run = mysqli_query($con, $query);
+
+    if ($query_run) {
+        // $_SESSION['message'] = "Student Deleted Successfully";
+        header("Location: booking.php");
+        exit(0);
+    } else {
+        // $_SESSION['message'] = "Student Not Deleted";
+        header("Location: booking.php");
+        exit(0);
+    }
+}
+
 if (isset($_POST['delete_appointment'])) {
     $id = mysqli_real_escape_string($con, $_POST['appointment_id']);
     // $a_id = $id['appointment_id'];
 
-    $query = "UPDATE appointments SET taken=false, doctor_id=NULL, user_id=NULL WHERE appointment_id=$id";
+    $query = "UPDATE appointments SET taken=false user_id=NULL WHERE appointment_id=$id";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
@@ -25,16 +84,16 @@ if (isset($_POST['delete_booking'])) {
     $id = mysqli_real_escape_string($con, $_POST['appointment_id']);
     // $a_id = $id['appointment_id'];
 
-    $query = "UPDATE appointments SET taken=false, doctor_id=NULL, user_id=NULL WHERE appointment_id=$id";
+    $query = "UPDATE appointments SET taken=false, user_id=NULL WHERE appointment_id=$id";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
         // $_SESSION['message'] = "Student Deleted Successfully";
-        header("Location: doctorsPage.php");
+        header("Location: ../HomePage.php");
         exit(0);
     } else {
         // $_SESSION['message'] = "Student Not Deleted";
-        header("Location: doctorsPage.php");
+        header("Location: ../HomePage.php");
         exit(0);
     }
 }
