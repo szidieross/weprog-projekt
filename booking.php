@@ -33,12 +33,8 @@ require './database/code.php';
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM appointments INNER JOIN doctors ON appointments.doctor_id = doctors.doctor_id";
                 $query = "SELECT * FROM appointments";
-                $query2 = "SELECT * FROM doctors";
-                // adatbazis ujra
                 $query_run = mysqli_query($con, $query);
-                $query_run2 = mysqli_query($con, $query2);
 
                 if (mysqli_num_rows($query_run) > 0) {
                     foreach ($query_run as $user) {
@@ -52,30 +48,8 @@ require './database/code.php';
                                     <?= $user['time']; ?>
                                 </td>
                                 <form action="" method="POST" class="form-flex">
-                                    <?php
-                                    $query = "SELECT * FROM doctors";
-                                    $query_run = mysqli_query($con, $query);
-
-                                    if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $user) {
-                                            ?>
-
-                                            <td>
-                                                <input type="radio" id="doc" name="doc" value="<?= $user['doctor_id']; ?>" required>
-                                                <label for="doc">
-                                                    <?= $user['d_last_name']; ?>
-                                                    <?= $user['d_first_name']; ?>
-                                                </label>
-
-                                            </td>
-                                            <?php
-
-                                        }
-                                    } else {
-                                        echo "<h5> No Record Found </h5>";
-                                    }
-                                    ?>
-                                    <td><button type="submit" name="appointment_booking" value="<?= $user['doctor_id']; ?>"
+                                    
+                                    <td><button type="submit" name="appointment_booking" value="<?= $user['appointment_id']; ?>"
                                             class="">Book
                                             Appointment</button></td>
                                 </form>

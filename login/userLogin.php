@@ -20,9 +20,9 @@ require '../database/code.php';
 
 setcookie("username", "istike");
 if (isset($_COOKIE["username"])) {
-    echo "HIIIIIIIIIIIIIIIIIII";
+    echo "";
 } else {
-    echo "BYEEEEEEEEEEEEEEEEEEEE";
+    echo "";
 }
 ?>
 
