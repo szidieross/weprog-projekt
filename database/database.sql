@@ -130,6 +130,38 @@ SET
 WHERE
     appointment_id = 1;
 
+UPDATE
+    appointments
+SET
+    user_id = 1,
+    taken = true
+WHERE
+    appointment_id = 2;
+
+UPDATE
+    appointments
+SET
+    user_id = 1,
+    taken = true
+WHERE
+    appointment_id = 3;
+
+UPDATE
+    appointments
+SET
+    user_id = 1,
+    taken = true
+WHERE
+    appointment_id = 4;
+
+UPDATE
+    appointments
+SET
+    user_id = 1,
+    taken = true
+WHERE
+    appointment_id = 5;
+
 -- DROP TABLE IF EXISTS doctors;
 
 -- CREATE TABLE doctors(

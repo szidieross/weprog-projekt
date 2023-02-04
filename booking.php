@@ -48,9 +48,9 @@ require './database/code.php';
                                         <?= $user['time']; ?>
                                     </td>
                                     <form action="" method="POST" class="form-flex">
-
-                                        <td><button type="submit" name="appointment_booking" value="<?= $user['appointment_id']; ?>"
-                                                class="">Book
+                                        <input type="hidden" name="appointment_id" value="<?= $user['appointment_id']; ?>" />
+                                        <td><button type="submit" name="add_appointment" value="<?= $user['appointment_id']; ?>"
+                                                class="btn">Book
                                                 Appointment</button></td>
                                     </form>
 
