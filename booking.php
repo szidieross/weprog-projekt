@@ -19,7 +19,7 @@ require 'code.php';
 
     <div class="">
         <?php if (isset($_COOKIE['username'])): ?>
-            <a href="./userLogin.php"><button class="btn">Back to Homepage</button></a>
+            <a href="./homepage.php"><button class="btn">Back to Homepage</button></a>
             <form action="" method="POST" class="">
                 <input type="hidden" name="username" value="<?= $_COOKIE["username"] ?>" />
                 <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Log Out</button>

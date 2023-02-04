@@ -2,9 +2,11 @@
 // session_start();
 require './database/dbcon.php';
 require 'code.php';
+
+
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,17 +19,37 @@ require 'code.php';
 
 <body>
     <div class="">
-        <?php if (isset($_COOKIE['username'])): ?>
-            <div class="content">
+        <?php if (!isset($_COOKIE['username'])): ?>
+            <h4>
+                <a href="../index.php" class=""><button class="btn">BACK</button></a>
+            </h4>
+            <div class="container">
+                <div class="form">
+                    <form action="" method="POST" class="form">
 
-                <h4>
-                    <form action="" method="POST" class="">
-                        <input type="hidden" name="appointment_id" value="<?= $user['appointment_id']; ?>" />
-                        <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Delete
-                            Appointment</button>
+                        <div class="">
+                            <label>Username</label>
+                            <input type="text" name="username" id="username" class="">
+                        </div>
+                        <div class="">
+                            <label>Password</label>
+                            <input type="password" name="password" id="password" class="">
+                        </div>
+                        <div class="">
+                            <button type="submit" name="login" class="sign">Login</button>
+                        </div>
+                        <p class="smallText">Don't have an account? <a href="./userRegister.php" class="sign">Sign
+                                up</a></p>
+
                     </form>
-                    <a href="./index.php" class="btn">Log out</a>
-                </h4>
+                </div>
+            </div>
+        <?php else: ?>
+            <div class="content">
+                <form action="" method="POST" class="">
+                    <input type="hidden" name="username" value="<?= $_COOKIE["username"] ?>" />
+                    <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Log Out</button>
+                </form>
                 <div class="booking">
                     <h2>Personal Data</h2>
                     <table class="">
@@ -68,9 +90,9 @@ require 'code.php';
                                             <a href="user-edit.php?id=<?= $user['user_id']; ?>"
                                                 class="btn btn-success btn-sm">Edit</a>
                                             <!-- <form action="code.php" method="POST" class="d-inline">
-                                                                                                                                                                                                                                                                                                                                                                                        <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
-                                                                                                                                                                                                                                                                                                                                                                                            class="btn btn-danger btn-sm">Delete</button>
-                                                                                                                                                                                                                                                                                                                                                                                    </form> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="btn btn-danger btn-sm">Delete</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </form> -->
                                         </td>
                                     </tr>
                                     <?php
@@ -100,7 +122,8 @@ require 'code.php';
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.user_id WHERE appointments.user_id = 1";
+                            $user_idd = $_COOKIE["user_id"];
+                            $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.user_id WHERE appointments.user_id = '$user_idd'";
                             $query_run = mysqli_query($con, $query);
 
 
@@ -138,10 +161,10 @@ require 'code.php';
 
 
             </div>
-        <?php else: ?>
-            even more html
         <?php endif; ?>
     </div>
+
+
 </body>
 
 </html>

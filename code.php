@@ -24,11 +24,11 @@ if (isset($_POST['login'])) {
     }
     if ($query_run) {
         $_SESSION['message'] = "Logged in Successfully";
-        header("Location: userLogin.php");
+        header("Location: homepage.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Logging in Not Successful";
-        header("Location: booking.php");
+        header("Location: homepage.php");
         exit(0);
     }
 }
@@ -55,11 +55,11 @@ if (isset($_POST['logout'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Logged out Successfully";
-        header("Location: userLogin.php");
+        header("Location: homepage.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Logging out Not Successful";
-        header("Location: booking.php");
+        header("Location: homepage.php");
         exit(0);
     }
 }
@@ -138,11 +138,11 @@ if (isset($_POST['delete_booking'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Appointment Deleted Successfully";
-        header("Location: userLogin.php");
+        header("Location: homepage.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Appointment Not Deleted";
-        header("Location: userLogin.php");
+        header("Location: homepage.php");
         exit(0);
     }
 }
