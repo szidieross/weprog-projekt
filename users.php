@@ -1,7 +1,7 @@
 <?php
 // session_start();
 require './database/dbcon.php';
-require './database/code.php';
+require 'code.php';
 ?>
 
 <!doctype html>

@@ -1,6 +1,7 @@
 <?php
 // Include config file
-require_once "../database/dbcon.php";
+require_once "./database/dbcon.php";
+require "code.php";
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -101,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../assets/styles/general.css">
+    <link rel="stylesheet" href="./assets/styles/general.css">
     <style>
         body {
             font: 14px sans-serif;

@@ -1,7 +1,7 @@
 <?php
 // session_start();
 require './database/dbcon.php';
-require './database/code.php';
+require 'code.php';
 ?>
 
 <!doctype html>
@@ -19,6 +19,11 @@ require './database/code.php';
 
     <div class="">
         <?php if (isset($_COOKIE['username'])): ?>
+            <a href="./userLogin.php"><button class="btn">Back to Homepage</button></a>
+            <form action="" method="POST" class="">
+                <input type="hidden" name="username" value="<?= $_COOKIE["username"] ?>" />
+                <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Log Out</button>
+            </form>
             <table class="">
                 <h4>
                     <a href="./index.php" class="btn">Log out</a>

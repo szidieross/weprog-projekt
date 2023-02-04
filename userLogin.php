@@ -1,7 +1,7 @@
 <?php
 // session_start();
-require '../database/dbcon.php';
-require '../database/code.php';
+require './database/dbcon.php';
+require 'code.php';
 
 
 ?>
@@ -14,7 +14,7 @@ require '../database/code.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/styles/general.css">
+    <link rel="stylesheet" href="./assets/styles/general.css">
 </head>
 
 <body>
@@ -44,18 +44,12 @@ require '../database/code.php';
                     </form>
                 </div>
             </div>
-
         <?php else: ?>
             <div class="content">
-
-                <h4>
-                    <form action="" method="POST" class="">
-                        <input type="hidden" name="appointment_id" value="<?= $user['appointment_id']; ?>" />
-                        <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Delete
-                            Appointment</button>
-                    </form>
-                    <a href="./index.php" class="btn">Log out</a>
-                </h4>
+                <form action="" method="POST" class="">
+                    <input type="hidden" name="username" value="<?= $_COOKIE["username"] ?>" />
+                    <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Log Out</button>
+                </form>
                 <div class="booking">
                     <h2>Personal Data</h2>
                     <table class="">
@@ -96,9 +90,9 @@ require '../database/code.php';
                                             <a href="user-edit.php?id=<?= $user['user_id']; ?>"
                                                 class="btn btn-success btn-sm">Edit</a>
                                             <!-- <form action="code.php" method="POST" class="d-inline">
-                                                                                                                                                                                                                                                                                                                                                                                                                <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
-                                                                                                                                                                                                                                                                                                                                                                                                                    class="btn btn-danger btn-sm">Delete</button>
-                                                                                                                                                                                                                                                                                                                                                                                                            </form> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="btn btn-danger btn-sm">Delete</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </form> -->
                                         </td>
                                     </tr>
                                     <?php
@@ -128,7 +122,8 @@ require '../database/code.php';
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.user_id WHERE appointments.user_id = 1";
+                            $user_idd = $_COOKIE["user_id"];
+                            $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.user_id WHERE appointments.user_id = '$user_idd'";
                             $query_run = mysqli_query($con, $query);
 
 

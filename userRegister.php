@@ -1,7 +1,7 @@
 <?php
 // session_start();
-require '../database/dbcon.php';
-require '../database/code.php';
+require './database/dbcon.php';
+require 'code.php';
 
 // if (isset($_POST['add_user'])) {
 //     // $id = mysqli_real_escape_string($con, $_POST['id']);
@@ -58,7 +58,7 @@ require '../database/code.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/styles/general.css">
+    <link rel="stylesheet" href="./assets/styles/general.css">
 </head>
 
 <body>

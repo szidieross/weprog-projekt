@@ -1,8 +1,8 @@
 <!--  it's still in progress, sorry -->
 <?php
 // session_start();
-require '../database/dbcon.php';
-require '../database/code.php';
+require './database/dbcon.php';
+require 'code.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require '../database/code.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/styles/general.css">
+    <link rel="stylesheet" href="./assets/styles/general.css">
 </head>
 
 <body>
