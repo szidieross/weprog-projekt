@@ -126,66 +126,65 @@ UPDATE
     appointments
 SET
     user_id = 1,
-    doctor_id = 1,
     taken = true
 WHERE
     appointment_id = 1;
 
-DROP TABLE IF EXISTS doctors;
+-- DROP TABLE IF EXISTS doctors;
 
-CREATE TABLE doctors(
-    `doctor_id` int(10) NOT NULL AUTO_INCREMENT,
-    `d_first_name` varchar(100) NOT NULL,
-    `d_last_name` varchar(100) NOT NULL,
-    `d_username` varchar(100) NOT NULL,
-    `d_email` varchar(100) NOT NULL,
-    `d_password` varchar(100) NOT NULL,
-    `specialization` varchar(100) NOT NULL,
-    PRIMARY KEY (`doctor_id`)
-);
+-- CREATE TABLE doctors(
+--     `doctor_id` int(10) NOT NULL AUTO_INCREMENT,
+--     `d_first_name` varchar(100) NOT NULL,
+--     `d_last_name` varchar(100) NOT NULL,
+--     `d_username` varchar(100) NOT NULL,
+--     `d_email` varchar(100) NOT NULL,
+--     `d_password` varchar(100) NOT NULL,
+--     `specialization` varchar(100) NOT NULL,
+--     PRIMARY KEY (`doctor_id`)
+-- );
 
-INSERT INTO
-    doctors(
-        `d_first_name`,
-        `d_last_name`,
-        `d_username`,
-        `d_email`,
-        `d_password`,
-        `specialization`
-    )
-VALUES
-    (
-        'Kinga',
-        'Imre',
-        'imrekinga',
-        'imrekinga@gmail.com',
-        '123456789',
-        'kardiológus'
-    ),
-    (
-        'András',
-        'Német',
-        'nemetandras',
-        'nemetandras@gmail.com',
-        '123456789',
-        'általános orvos'
-    );
+-- INSERT INTO
+--     doctors(
+--         `d_first_name`,
+--         `d_last_name`,
+--         `d_username`,
+--         `d_email`,
+--         `d_password`,
+--         `specialization`
+--     )
+-- VALUES
+--     (
+--         'Kinga',
+--         'Imre',
+--         'imrekinga',
+--         'imrekinga@gmail.com',
+--         '123456789',
+--         'kardiológus'
+--     ),
+--     (
+--         'András',
+--         'Német',
+--         'nemetandras',
+--         'nemetandras@gmail.com',
+--         '123456789',
+--         'általános orvos'
+--     );
 
-INSERT INTO
-    doctors(
-        `d_first_name`,
-        `d_last_name`,
-        `d_username`,
-        `d_email`,
-        `d_password`,
-        `specialization`
-    )
-VALUES
-    (
-        'Istvan',
-        'Benedek',
-        'benedekistvan',
-        'benedekistvan@gmail.com',
-        '123456789',
-        'urulógus'
-    );
+-- INSERT INTO
+--     doctors(
+--         `d_first_name`,
+--         `d_last_name`,
+--         `d_username`,
+--         `d_email`,
+--         `d_password`,
+--         `specialization`
+--     )
+-- VALUES
+--     (
+--         'Istvan',
+--         'Benedek',
+--         'benedekistvan',
+--         'benedekistvan@gmail.com',
+--         '123456789',
+--         'urulógus'
+--     );

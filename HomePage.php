@@ -37,7 +37,7 @@ require './database/code.php';
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT * FROM users INNER JOIN appointments ON users.user_id = appointments.user_id";
+                        $query = "SELECT * FROM users WHERE users.user_id = 2";
                         $query_run = mysqli_query($con, $query);
 
                         if (mysqli_num_rows($query_run) > 0) {
@@ -61,9 +61,9 @@ require './database/code.php';
                                         <a href="user-edit.php?id=<?= $user['user_id']; ?>"
                                             class="btn btn-success btn-sm">Edit</a>
                                         <!-- <form action="code.php" method="POST" class="d-inline">
-                                                                                                                                                                                                                                                                                                                                                <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
-                                                                                                                                                                                                                                                                                                                                                    class="btn btn-danger btn-sm">Delete</button>
-                                                                                                                                                                                                                                                                                                                                            </form> -->
+                                                                                                                                                                                                                                                                                                                                                        <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
+                                                                                                                                                                                                                                                                                                                                                            class="btn btn-danger btn-sm">Delete</button>
+                                                                                                                                                                                                                                                                                                                                                    </form> -->
                                     </td>
                                 </tr>
                                 <?php
@@ -86,9 +86,6 @@ require './database/code.php';
                 <table class="appointments">
                     <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Doctor</th>
                             <th>Date</th>
                             <th>Time</th>
                             <th></th>
@@ -96,7 +93,7 @@ require './database/code.php';
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.user_id INNER JOIN doctors ON appointments.doctor_id = doctors.doctor_id";
+                        $query = "SELECT * FROM appointments INNER JOIN users ON appointments.user_id = users.user_id WHERE appointments.user_id = 1";
                         $query_run = mysqli_query($con, $query);
 
 
@@ -105,12 +102,6 @@ require './database/code.php';
                                 ?>
                                 <?php if ($user['taken'] == true): ?>
                                     <tr>
-                                        <td>
-                                            <?= $user['d_first_name']; ?>
-                                        </td>
-                                        <td>
-                                            <?= $user['d_last_name']; ?>
-                                        </td>
                                         <td>
                                             <?= $user['date']; ?>
                                         </td>
