@@ -21,6 +21,11 @@ require './database/code.php';
             <div class="content">
 
                 <h4>
+                    <form action="" method="POST" class="">
+                        <input type="hidden" name="appointment_id" value="<?= $user['appointment_id']; ?>" />
+                        <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Delete
+                            Appointment</button>
+                    </form>
                     <a href="./index.php" class="btn">Log out</a>
                 </h4>
                 <div class="booking">
@@ -38,7 +43,7 @@ require './database/code.php';
                         </thead>
                         <tbody>
                             <?php
-                            $user=$_COOKIE['username'];
+                            $user = $_COOKIE['username'];
                             $query = "SELECT * FROM users WHERE users.username = '$user'";
                             $query_run = mysqli_query($con, $query);
 
@@ -63,9 +68,9 @@ require './database/code.php';
                                             <a href="user-edit.php?id=<?= $user['user_id']; ?>"
                                                 class="btn btn-success btn-sm">Edit</a>
                                             <!-- <form action="code.php" method="POST" class="d-inline">
-                                                                                                                                                                                                                                                                                                                                                                            <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
-                                                                                                                                                                                                                                                                                                                                                                                class="btn btn-danger btn-sm">Delete</button>
-                                                                                                                                                                                                                                                                                                                                                                        </form> -->
+                                                                                                                                                                                                                                                                                                                                                                                        <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
+                                                                                                                                                                                                                                                                                                                                                                                            class="btn btn-danger btn-sm">Delete</button>
+                                                                                                                                                                                                                                                                                                                                                                                    </form> -->
                                         </td>
                                     </tr>
                                     <?php
