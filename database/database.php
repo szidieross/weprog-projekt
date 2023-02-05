@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 DROP DATABASE IF EXISTS rendelo;
 
 CREATE DATABASE IF NOT EXISTS rendelo;
