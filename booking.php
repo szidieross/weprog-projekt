@@ -72,9 +72,12 @@ require 'code.php';
             </table>
 
         <?php else: ?>
-            even more html
+            <div class="noRights">
+                <p>You can't reach this page.</p>
+            </div>
         <?php endif; ?>
     </div>
 </body>
+<?php mysqli_close($con); ?>
 
 </html>

@@ -1,8 +1,9 @@
-<!--  it's still in progress, sorry -->
 <?php
 // session_start();
 require './database/dbcon.php';
 require 'code.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,29 +19,45 @@ require 'code.php';
 
 <body>
     <div class="">
-        <h4>
-            <a href="../index.php" class="btn">BACK</a>
-        </h4>
-        <div class="container">
-            <div class="form">
-                <form action="code.php" method="POST">
+        <?php if (isset($_COOKIE['username']) && ($_COOKIE['username'] === 'admin')): ?>
+            <a href="users.php" class=""><button class="btn">USERS</button></a>
+            <a href="appointments.php" class=""><button class="btn">APPOINTMENTS</button></a>
+            <form action="" method="POST" class="">
+                <input type="hidden" name="username" value="<?= $_COOKIE["username"] ?>" />
+                <button type="submit" name="logout" value="<?= $user['user_id']; ?>" class="btn">Log Out</button>
+            </form>
+        <?php else: ?>
+            <div class="content">
+                <h4>
+                    <a href="index.php" class=""><button class="btn">BACK</button></a>
+                </h4>
+                <div class="container">
+                    <div class="form">
+                        <form action="" method="POST" class="form">
 
-                    <div class="">
-                        <label>Username</label>
-                        <input type="text" name="username" class="form-control">
-                    </div>
-                    <div class="">
-                        <label>Password</label>
-                        <input type="password" name="password" class="">
-                    </div>
-                    <div class="">
-                        <button type="submit" name="admin_login" class="sign">Login</button>
-                    </div>
+                            <div class="">
+                                <label>Username</label>
+                                <input type="text" name="username" id="username" class="">
+                            </div>
+                            <div class="">
+                                <label>Password</label>
+                                <input type="password" name="password" id="password" class="">
+                            </div>
+                            <div class="">
+                                <button type="submit" name="adminlogin" class="sign">Login</button>
+                            </div>
+                            <p class="smallText">Don't have an account? <a href="./userRegister.php" class="sign">Sign
+                                    up</a></p>
 
-                </form>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
     </div>
+
+
 </body>
+<?php mysqli_close($con); ?>
 
 </html>

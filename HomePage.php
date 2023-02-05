@@ -20,25 +20,31 @@ require 'code.php';
 <body>
     <div class="">
         <?php if (!isset($_COOKIE['username'])): ?>
-            <h4>
-                <a href="../index.php" class=""><button class="btn">BACK</button></a>
-            </h4>
+            <a href="index.php" class=""><button class="btn">BACK</button></a>
             <div class="container">
                 <div class="form">
                     <form action="" method="POST" class="form">
 
                         <div class="">
                             <label>Username</label>
-                            <input type="text" name="username" id="username" class="">
+                            <input type="text" name="username" id="username" class="" required value="<?php if (isset($_COOKIE["username"])) {
+                                echo $_COOKIE["username"];
+                            } ?>">
                         </div>
                         <div class="">
                             <label>Password</label>
-                            <input type="password" name="password" id="password" class="">
+                            <input type="password" name="password" id="password" class="" required value="<?php if (isset($_COOKIE["password"])) {
+                                echo $_COOKIE["password"];
+                            } ?>">
                         </div>
+                        </p>
+                        <!-- <p><input type="checkbox" name="remember" /> Remember me
+                        </p>
+                        <p><input type="submit" value="Login"></span></p> -->
                         <div class="">
                             <button type="submit" name="login" class="sign">Login</button>
                         </div>
-                        <p class="smallText">Don't have an account? <a href="./userRegister.php" class="sign">Sign
+                        <p class="smallText">Don't have an account? <a href="register.php" class="sign">Sign
                                 up</a></p>
 
                     </form>
@@ -90,9 +96,9 @@ require 'code.php';
                                             <a href="user-edit.php?id=<?= $user['user_id']; ?>"
                                                 class="btn btn-success btn-sm">Edit</a>
                                             <!-- <form action="code.php" method="POST" class="d-inline">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="btn btn-danger btn-sm">Delete</button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </form> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="btn btn-danger btn-sm">Delete</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </form> -->
                                         </td>
                                     </tr>
                                     <?php
@@ -166,5 +172,6 @@ require 'code.php';
 
 
 </body>
+<?php mysqli_close($con); ?>
 
 </html>

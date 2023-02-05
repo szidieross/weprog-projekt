@@ -18,58 +18,64 @@ require 'code.php';
 <body>
 
     <div class="">
-        <?php if (isset($_COOKIE['username'])): ?>
-            <?php if ($_COOKIE['username'] === 'admin'): ?>
-                <table class="">
-                    <h4>
-                        <a href="./index.php" class="btn">Log out</a>
-                    </h4>
-                    <h2 class="title">Available Appointments</h2>
+        <?php if (isset($_COOKIE['username']) && ($_COOKIE['username'] === 'admin')): ?>
+            <table class="">
 
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $query = "SELECT * FROM appointments";
-                        $query_run = mysqli_query($con, $query);
+                <a href="adminLogin.php" class=""><button class="btn">Back to Admin Homepage</button></a>
+                <h2 class="title">Available Appointments</h2>
 
-                        if (mysqli_num_rows($query_run) > 0) {
-                            foreach ($query_run as $user) {
-                                ?>
-                                <tr>
-                                    <td>
-                                        <?= $user['date']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $user['time']; ?>
-                                    </td>
-                                    <form action="" method="POST" class="form-flex">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM users INNER JOIN appointments ON users.user_id = appointments.user_id WHERE appointments.taken=true";
+                    $query_run = mysqli_query($con, $query);
 
-                                        <td><button type="submit" name="appointment_booking" value="<?= $user['appointment_id']; ?>"
-                                                class="">Book
-                                                Appointment</button></td>
-                                    </form>
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $user) {
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $user['last_name']; ?>
+                                    <?= $user['first_name']; ?>
+                                    (@
+                                    <?= $user['username']; ?>)
+                                </td>
+                                <td>
+                                    <?= $user['date']; ?>
+                                </td>
+                                <td>
+                                    <?= $user['time']; ?>
+                                </td>
+                                <form action="" method="POST" class="form-flex">
+                                    <input type="hidden" name="appointment_id" value="<?= $user['appointment_id']; ?>" />
+                                    <td><button type=" submit" name="delete_b" value="<?= $user['appointment_id']; ?>"
+                                            class="">Delete
+                                            Appointment</button></td>
+                                </form>
 
-                                </tr>
-                                <?php
-                            }
-                        } else {
-                            echo "<tr><h5> No Record Found </h5></tr>";
+                            </tr>
+                            <?php
                         }
-                        ?>
+                    } else {
+                        echo "<tr><h5> No Record Found </h5></tr>";
+                    }
+                    ?>
 
-                    </tbody>
-                </table>
-            <?php endif; ?>
-
+                </tbody>
+            </table>
         <?php else: ?>
-            even more html
+            <div class="noRights">
+                <p>You can't reach this page.</p>
+            </div>
         <?php endif; ?>
     </div>
 </body>
+<?php mysqli_close($con); ?>
 
 </html>
