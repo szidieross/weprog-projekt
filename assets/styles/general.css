@@ -197,13 +197,13 @@ h6 {
     border-radius: 4px;
 }
 
-input{
+input {
     border: 1px solid var(--primary);
     height: 20px;
-    margin: 0 10px;    
+    margin: 0 10px;
 }
 
-label{
+label {
     color: var(--primary);
     font-weight: bold;
 }
