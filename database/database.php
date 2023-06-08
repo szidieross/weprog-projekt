@@ -73,9 +73,9 @@ VALUES
     ),
     (
         'Tamas',
-        'Mate',
-        'matetamas',
-        'matetamas@gmail.com',
+        'Ballo',
+        'ballotamas',
+        'ballotamas@gmail.com',
         '123456789'
     );
 
@@ -84,7 +84,6 @@ DROP TABLE IF EXISTS appointments;
 CREATE TABLE appointments(
     `appointment_id` int(10) NOT NULL AUTO_INCREMENT,
     `user_id` int(10),
-    `doctor_id` int(10),
     `date` date NOT NULL,
     `time` time NOT NULL,
     `taken` boolean NOT NULL,

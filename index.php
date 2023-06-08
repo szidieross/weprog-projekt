@@ -17,14 +17,15 @@ require 'code.php';
 
 <body>
     <div class="title">
-        <h1 class="title">Online Doctor's Office</h1>
+        <h1 class="title">Welcome to Our Online Doctor's Office</h1>
+        <h2 class="">Want an appointment? Log in</h2>
     </div>
     <div class="categories">
         <div class="groups">
             <div class="group-img"></div>
             <div class="group-data">
                 <h2 class="group-name">Patients</h2>
-                <a href="homepage.php" class=""><button class="btn">Sign up</button></a>
+                <a href="homepage.php" class=""><button class="btn">Sign in</button></a>
                 <p class="smallText">Don't have an account yet? <a href="register.php" class=""><button class="btn">Sign
                             up</button></a>
                 </p>
@@ -41,7 +42,7 @@ require 'code.php';
             <div class="group-img"></div>
             <div class="group-data">
                 <h2 class="group-name">Admin</h2>
-                <a href="adminLogin.php" class="btn">Log in</a>
+                <a href="adminLogin.php"><button class="btn">Log in</button></a>
             </div>
         </div>
     </div>

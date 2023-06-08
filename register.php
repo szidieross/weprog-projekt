@@ -116,7 +116,7 @@ require "code.php";
 <body>
     <div class="">
         <h4>
-            <a href="index.php" class="btn">BACK</a>
+            <a href="index.php" class=""><button class="btn">BACK</button></a>
         </h4>
         <div class="form">
             <form action="code.php" method="post">

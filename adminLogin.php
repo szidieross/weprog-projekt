@@ -2,8 +2,6 @@
 // session_start();
 require './database/dbcon.php';
 require 'code.php';
-
-
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +32,6 @@ require 'code.php';
                 <div class="container">
                     <div class="form">
                         <form action="" method="POST" class="form">
-
                             <div class="">
                                 <label>Username</label>
                                 <input type="text" name="username" id="username" class="">
@@ -48,7 +45,6 @@ require 'code.php';
                             </div>
                             <p class="smallText">Don't have an account? <a href="./userRegister.php" class="sign">Sign
                                     up</a></p>
-
                         </form>
                     </div>
                 </div>
@@ -56,8 +52,8 @@ require 'code.php';
         <?php endif; ?>
     </div>
 
+    <?php mysqli_close($con); ?>
 
 </body>
-<?php mysqli_close($con); ?>
 
 </html>

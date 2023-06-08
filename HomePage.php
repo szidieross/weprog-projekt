@@ -44,8 +44,9 @@ require 'code.php';
                         <div class="">
                             <button type="submit" name="login" class="sign">Login</button>
                         </div>
-                        <p class="smallText">Don't have an account? <a href="register.php" class="sign">Sign
-                                up</a></p>
+                        <p class="smallText">Don't have an account?
+                            <a href="register.php" class=""><button class="btn">Sign up</button></a>
+                        </p>
 
                     </form>
                 </div>
@@ -112,7 +113,7 @@ require 'code.php';
                 </div>
                 <div class="booking">
                     <h2>Want an Appointment?</h2>
-                    <a href="./booking.php" class="sign">Book Appointment</a></p>
+                    <button class="btn"><a href="./booking.php" class="btn" >Book Appointment</a></p></button>
                 </div>
 
                 <div class="booking">
