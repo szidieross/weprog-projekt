@@ -3,7 +3,6 @@
 require './database/dbcon.php';
 require 'code.php';
 
-
 ?>
 
 <!DOCTYPE html>
@@ -93,8 +92,9 @@ require 'code.php';
                                             <?= $user['email']; ?>
                                         </td>
                                         <td>
+                                            
                                             <!-- <a href="user-view.php?id=<?= $user['user_id']; ?>" class="btn btn-info btn-sm">View</a> -->
-                                            <a href="user-edit.php?id=<?= $user['user_id']; ?>"
+                                            <a href="userEdit.php<?= $user['user_id']; ?>"
                                                 class="btn btn-success btn-sm">Edit</a>
                                             <!-- <form action="code.php" method="POST" class="d-inline">
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>"
